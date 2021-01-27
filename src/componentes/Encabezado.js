@@ -10,8 +10,8 @@ function Encabezado(props) {
 
     return (
         <div className="Encabezado">
-            <div className="jumbotron" style={{backgroundColor: fondo}} /*style= {{Color: color}}*/>
-                <h1>{titulo}</h1>              
+            <div className="jumbotron" style={{backgroundColor: fondo }}>
+                <h1 style= {{color: color}}>{titulo}</h1>              
             </div>
         </div>
     )

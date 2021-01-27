@@ -7,29 +7,32 @@ import "./Contenido.css";
 /* ---------------------------------------------------------------- */
 class Contenido extends React.Component {
   constructor(props) {
-    this.setState(prevstate => ({fondo : "yellow"}))
+    
     super(props);
+    this.setState(prevstate => ({fondo : "black"}))
   }
 
   state = {
-    colores : this.props.colores, contenido : this.props.contenido , fondo : this.fondo
+     contenido : this.props.contenido , fondo : this.fondo
   };
 
  
 
-  obtenerNumeroAlAzar(min, max) {
-    return Math.random() * (max - min) + min;
+  obtenerNumeroAlAzar() {
+    return Math.floor(Math.random() * 3)
   }
 
   cambiarColorDeFondo() {
+    var { colores } = ["red", "amarillo", "cyan", "naranja"]
 
-    this.fondo = colores[this.obtenerNumeroAlAzar(0,3)]
+    console.log(colores[this.obtenerNumeroAlAzar()])
+    //this.fondo = colores[this.obtenerNumeroAlAzar(0,3)]
     this.setState(prevstate => ({fondo : this.fondo}))
     
   }
 
   render() {
-    let { colores } = this.props
+
     let { contenido } = this.props
     let { fondo } = this.state;
 
