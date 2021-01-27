@@ -7,54 +7,47 @@ import "./Contenido.css";
 /* ---------------------------------------------------------------- */
 class Contenido extends React.Component {
   constructor(props) {
+    this.setState(prevstate => ({fondo : "yellow"}))
     super(props);
   }
 
   state = {
-    color: this.props.color
+    colores : this.props.colores, contenido : this.props.contenido , fondo : this.fondo
   };
 
-  colores = ["red", "amarillo", "cyan", "naranja"];
+ 
 
   obtenerNumeroAlAzar(min, max) {
     return Math.random() * (max - min) + min;
   }
 
   cambiarColorDeFondo() {
-    this.setState(
-     color = colores[this.obtenerNumeroAlAzar]
-    );
+
+    this.fondo = colores[this.obtenerNumeroAlAzar(0,3)]
+    this.setState(prevstate => ({fondo : this.fondo}))
+    
   }
 
   render() {
-   
-    let { color } = this.state;
+    let { colores } = this.props
+    let { contenido } = this.props
+    let { fondo } = this.state;
 
     return (
       <div className="Contenido">
-        <div className="jumbotron" style={{ backgroundColor: {color} }}>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing, elit tempor
-            curabitur elementum eu, mauris praesent ante vivamus rutrum. Commodo
-            placerat ante curabitur diam elementum viverra ligula laoreet cras
-            urna neque litora fusce, euismod porta imperdiet ullamcorper tellus
-            porttitor malesuada nostra integer parturient penatibus aptent id,
-            est tempus convallis nullam purus metus felis lacinia dis montes
-            quis ultricies. Tempus ac sem at vitae odio venenatis nulla congue
-            facilisi, cursus ullamcorper penatibus fringilla neque suscipit
-            tellus montes, quis rhoncus erat litora orci turpis consequat purus.
-          </p>
+          <div className="jumbotron" style={{backgroundColor: fondo}}>
+              <p> {contenido}</p>
+          </div>
 
-          <button
-            className="btn btn-success my-1"
-            onClick={() => this.cambiarColorDeFondo()}
-          >
-            Cambiar Color
+          <button className="btn btn-success my-1" onClick={() => this.cambiarColorDeFondo()}>
+                  Cambiar Fondo: {fondo}
           </button>
-        </div>
+
       </div>
-    );
-  }
+  )
+}
+
+
 }
 
 export default Contenido;

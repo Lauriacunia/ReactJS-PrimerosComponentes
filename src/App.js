@@ -11,7 +11,7 @@ function App() {
           <Encabezado titulo="Título principal" fondo="blue"  /*color="red"*//></div>        
 
           <hr/>
-            <Contenido color="red"/>
+            <Contenido contenido = "Este es un parrafo" fondo="red" colores= {"red", "amarillo", "cyan", "naranja"}/>
         </div>
       </div>
   );
