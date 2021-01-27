@@ -12,7 +12,7 @@ function App() {
       <hr />
 
       <div>
-        <Contenido contenido="Este es un parrafo" />
+        <Contenido contenido="Este es un parrafo" fondo="red"/>
       </div>
 
     </div>
