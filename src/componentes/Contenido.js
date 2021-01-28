@@ -9,29 +9,41 @@ class Contenido extends React.Component {
   constructor(props) {
     super(props);
     // seteo estado inicial del backgroundcolor
-    this.state = { fondo: "red" }; 
+    this.state = { fondo: "red" };
   }
 
-  
   state = {
     contenido: this.props.contenido,
     fondo: this.fondo,
   };
 
   obtenerNumeroAlAzar() {
-    return Math.floor(Math.random() * 8);
+    return Math.floor(Math.random() * 16);
   }
 
-  cambiarColorDeFondo() {  
+  cambiarColorDeFondo() {
+    const colores = [
+      "red",
+      "yellow",
+      "cyan",
+      "orange",
+      "green",
+      "brown",
+      "fuchsia",
+      "crimson",
+      "beige",
+      "grey",
+      "purple",
+      "teal",
+      "olive",
+      "aqua",
+      "indigo",
+      "yellowgreen",
+    ];
 
-    const colores = ["red", "yellow", "cyan", "orange", "green", "brown", "fuchsia", "crymson"]
-  
     this.setState((prevstate) => ({
-
-      fondo: `${colores[this.obtenerNumeroAlAzar()]}`
-
+      fondo: `${colores[this.obtenerNumeroAlAzar()]}`,
     }));
-
   }
 
   render() {
